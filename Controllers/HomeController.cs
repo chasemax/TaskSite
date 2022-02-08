@@ -25,7 +25,7 @@ namespace TaskSite.Controllers
         }
 
         [HttpGet]
-        public IActionResult Quandrant()
+        public IActionResult Quadrant()
         {
             var allTasks = _tc.TaskInfo.Include(x => x.Category).ToList();
             return View(allTasks);
