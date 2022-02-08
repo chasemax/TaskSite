@@ -21,5 +21,34 @@ namespace TaskSite.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Quandrant()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult DeleteTask(string id)
+        {
+            return RedirectToAction("Quadrant");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateTask(string id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult UpdateTask()
+        {
+            return RedirectToAction("Quadrant");
+        }
+
+        public IActionResult AddTask()
+        {
+            return View();
+        }
     }
 }
