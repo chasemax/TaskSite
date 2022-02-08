@@ -29,7 +29,7 @@ namespace TaskSite.Controllers
         {
             var allTasks = _tc.TaskInfo
                 .Include(x => x.Category)
-                .Where(x => x.Completed == true)
+                .Where(x => x.Completed == false)
                 .ToList();
             return View(allTasks);
         }
