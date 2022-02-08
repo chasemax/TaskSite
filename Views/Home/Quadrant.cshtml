@@ -18,6 +18,20 @@
                         <th>Completed</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach (var v in Model)
+                    {
+                        @if (v.Quadrant == 1)
+                        {
+                        <tr>
+                            <td>@v.Task</td>
+                            <td>@v.DueDate</td>
+                            <td>@v.Category.CategoryName</td>
+                            <td><input type="checkbox" /></td>
+                        </tr>
+                        }
+                    }
+                </tbody>
             </table>
         </div>
         <div class="col-6">
@@ -51,7 +65,7 @@
             </table>
         </div>
         <div class="col-6">
-            <h1>Quadrant 1</h1>
+            <h1>Quadrant 4</h1>
             <h4>Not Important/Not Urgent</h4>
             <table>
                 <thead>
