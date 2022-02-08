@@ -44,6 +44,16 @@ namespace TaskSite.Controllers
         }
 
         [HttpGet]
+        public IActionResult CheckOffTask(string id)
+        {
+            TaskInfo toCheckOff = _tc.TaskInfo.Single(x => x.Task == id);
+            toCheckOff.Completed = true;
+            _tc.Update(toCheckOff);
+            _tc.SaveChanges();
+            return RedirectToAction("Quadrant");
+        }
+
+        [HttpGet]
         public IActionResult UpdateTask(string id)
         {
             TaskInfo t = _tc.TaskInfo.Single(x => x.Task == id);
