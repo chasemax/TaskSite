@@ -23,12 +23,14 @@
                     {
                         @if (v.Quadrant == 1)
                         {
-                        <tr>
-                            <td>@v.Task</td>
-                            <td>@v.DueDate</td>
-                            <td>@v.Category.CategoryName</td>
-                            <td><input type="checkbox" /></td>
-                        </tr>
+                            <tr>
+                                <td>@v.Task</td>
+                                <td>@v.DueDate</td>
+                                <td>@v.Category.CategoryName</td>
+                                <td><input type="checkbox" /></td>
+                                <td>Edit</td>
+                                <td>Delete</td>
+                            </tr>
                         }
                     }
                 </tbody>
