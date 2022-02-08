@@ -21,8 +21,8 @@
                 <tbody>
                     @foreach (var v in Model)
                     {
-                        @if (v.Quadrant == 1)
-                        {
+                        @*@if (v.Quadrant == 1)
+                        {*@
                             <tr>
                                 <td>@v.Task</td>
                                 <td>@v.DueDate</td>
@@ -31,7 +31,7 @@
                                 <td>Edit</td>
                                 <td>Delete</td>
                             </tr>
-                        }
+                        @*}*@
                     }
                 </tbody>
             </table>
@@ -48,6 +48,22 @@
                         <th>Completed</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach (var v in Model)
+                    {
+                        @if (v.Quadrant == 2)
+                        {
+                            <tr>
+                                <td>@v.Task</td>
+                                <td>@v.DueDate</td>
+                                <td>@v.Category.CategoryName</td>
+                                <td><input type="checkbox" /></td>
+                                <td>Edit</td>
+                                <td>Delete</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
             </table>
         </div>
     </div>
@@ -64,6 +80,22 @@
                         <th>Completed</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach (var v in Model)
+                    {
+                        @if (v.Quadrant == 3)
+                        {
+                            <tr>
+                                <td>@v.Task</td>
+                                <td>@v.DueDate</td>
+                                <td>@v.Category.CategoryName</td>
+                                <td><input type="checkbox" /></td>
+                                <td>Edit</td>
+                                <td>Delete</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
             </table>
         </div>
         <div class="col-6">
@@ -78,6 +110,22 @@
                         <th>Completed</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach (var v in Model)
+                    {
+                        @if (v.Quadrant == 4)
+                        {
+                            <tr>
+                                <td>@v.Task</td>
+                                <td>@v.DueDate</td>
+                                <td>@v.Category.CategoryName</td>
+                                <td><input type="checkbox" /></td>
+                                <td>Edit</td>
+                                <td>Delete</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
             </table>
         </div>
     </div>
