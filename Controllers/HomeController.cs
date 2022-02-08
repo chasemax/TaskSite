@@ -27,13 +27,19 @@ namespace TaskSite.Controllers
         [HttpGet]
         public IActionResult Quadrant()
         {
-            var allTasks = _tc.TaskInfo.Include(x => x.Category).ToList();
+            var allTasks = _tc.TaskInfo
+                .Include(x => x.Category)
+                .Where(x => x.Completed == true)
+                .ToList();
             return View(allTasks);
         }
 
         [HttpGet]
         public IActionResult DeleteTask(string id)
         {
+            TaskInfo toDelete = _tc.TaskInfo.Single(x => x.Task == id);
+            _tc.Remove(toDelete);
+            _tc.SaveChanges();
             return RedirectToAction("Quadrant");
         }
 
@@ -63,9 +69,18 @@ namespace TaskSite.Controllers
         [HttpPost]
         public IActionResult AddTask(TaskInfo ti)
         {
-            _tc.Add(ti);
-            _tc.SaveChanges();
-            return RedirectToAction("Quadrant");
+            if (ModelState.IsValid)
+            {
+                _tc.Add(ti);
+                _tc.SaveChanges();
+                return RedirectToAction("Quadrant");
+            }
+            else
+            {
+                ViewBag.categories = _tc.Categories.ToList();
+                return View("tasks");
+            }
+            
         }
     }
 }
