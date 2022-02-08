@@ -5,16 +5,17 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using TaskSite.Models;
 
 namespace TaskSite.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private TaskContext _tc;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(TaskContext tc)
         {
-            _logger = logger;
+            _tc = tc;
         }
 
         public IActionResult Index()
@@ -25,7 +26,8 @@ namespace TaskSite.Controllers
         [HttpGet]
         public IActionResult Quandrant()
         {
-            return View();
+            List<TaskInfo> allTasks = _tc.TaskInfo.ToList();
+            return View(allTasks);
         }
 
         [HttpGet]
@@ -37,18 +39,30 @@ namespace TaskSite.Controllers
         [HttpGet]
         public IActionResult UpdateTask(string id)
         {
-            return View();
+            TaskInfo t = _tc.TaskInfo.Single(x => x.Task == id);
+            return View("tasks", t);
         }
 
         [HttpPost]
-        public IActionResult UpdateTask()
+        public IActionResult UpdateTask(TaskInfo ti)
         {
+            _tc.Update(ti);
+            _tc.SaveChanges();
             return RedirectToAction("Quadrant");
         }
 
+        [HttpGet]
         public IActionResult AddTask()
         {
-            return View();
+            return View("tasks");
+        }
+
+        [HttpPost]
+        public IActionResult AddTask(TaskInfo ti)
+        {
+            _tc.Add(ti);
+            _tc.SaveChanges();
+            return RedirectToAction("Quadrant");
         }
     }
 }
