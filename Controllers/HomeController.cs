@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace TaskSite.Controllers
 {
     public class HomeController : Controller
     {
-        private TaskContext _tc;
+        private TaskContext _tc { get; set; }
 
         public HomeController(TaskContext tc)
         {
@@ -26,7 +27,7 @@ namespace TaskSite.Controllers
         [HttpGet]
         public IActionResult Quandrant()
         {
-            List<TaskInfo> allTasks = _tc.TaskInfo.ToList();
+            var allTasks = _tc.TaskInfo.Include(x => x.Category).ToList();
             return View(allTasks);
         }
 
@@ -40,6 +41,7 @@ namespace TaskSite.Controllers
         public IActionResult UpdateTask(string id)
         {
             TaskInfo t = _tc.TaskInfo.Single(x => x.Task == id);
+            ViewBag.categories = _tc.Categories.ToList();
             return View("tasks", t);
         }
 
@@ -54,6 +56,7 @@ namespace TaskSite.Controllers
         [HttpGet]
         public IActionResult AddTask()
         {
+            ViewBag.categories = _tc.Categories.ToList();
             return View("tasks");
         }
 
