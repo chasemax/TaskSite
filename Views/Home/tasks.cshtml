@@ -4,7 +4,7 @@
 @model TaskSite.Models.TaskInfo
 
 <form method="post">
-    <div asp-validation-summary="ALL"></div>
+    <div asp-validation-summary="All"></div>
     <label asp-for="Task">Task Name</label><br />
     <input asp-for="Task"/><br />
 
@@ -17,9 +17,9 @@
     <label asp-for="Category">Category</label>
     <select asp-for="Category">
         <option value="">Select a Category</option>
-        @foreach(Category c in Viewbag.categories)
+        @foreach(Category c in ViewBag.categories)
         {
-            <option value="@c.CategoryID">@c.Category</option>
+            <option value="@c.CategoryID">@c.CategoryName</option>
         }
     </select><br />
 
