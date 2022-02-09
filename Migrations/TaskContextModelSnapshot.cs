@@ -53,8 +53,9 @@ namespace TaskSite.Migrations
 
             modelBuilder.Entity("TaskSite.Models.TaskInfo", b =>
                 {
-                    b.Property<string>("Task")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("TaskID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
@@ -68,7 +69,11 @@ namespace TaskSite.Migrations
                     b.Property<int>("Quadrant")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Task");
+                    b.Property<string>("Task")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("TaskID");
 
                     b.HasIndex("CategoryId");
 
