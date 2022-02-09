@@ -2,7 +2,7 @@
 
 namespace TaskSite.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,6 +23,8 @@ namespace TaskSite.Migrations
                 name: "TaskInfo",
                 columns: table => new
                 {
+                    TaskID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     Task = table.Column<string>(nullable: false),
                     DueDate = table.Column<string>(nullable: true),
                     Quadrant = table.Column<int>(nullable: false),
@@ -31,7 +33,7 @@ namespace TaskSite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TaskInfo", x => x.Task);
+                    table.PrimaryKey("PK_TaskInfo", x => x.TaskID);
                     table.ForeignKey(
                         name: "FK_TaskInfo_Categories_CategoryId",
                         column: x => x.CategoryId,
