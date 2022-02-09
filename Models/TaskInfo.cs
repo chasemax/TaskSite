@@ -10,6 +10,8 @@ namespace TaskSite.Models
     {
         [Key]
         [Required]
+        public int TaskID { get; set; }
+        [Required]
         public string Task { get; set; }
         public string DueDate { get; set; }
         [Required]
