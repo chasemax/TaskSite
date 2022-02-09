@@ -8,7 +8,7 @@ using TaskSite.Models;
 namespace TaskSite.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20220208194453_initial")]
+    [Migration("20220209173006_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
