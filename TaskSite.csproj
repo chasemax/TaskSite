@@ -21,7 +21,4 @@
   <ItemGroup>
     <None Remove="Microsoft.jQuery.Unobtrusive.Ajax" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Remove="Views\Home\ConfirmDelete.cshtml" />
-  </ItemGroup>
 </Project>
