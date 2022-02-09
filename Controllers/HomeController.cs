@@ -35,25 +35,25 @@ namespace TaskSite.Controllers
         }
 
         [HttpGet]
-        public IActionResult DeleteTask(string id)
+        public IActionResult DeleteTask(int id)
         {
-            TaskInfo toDelete = _tc.TaskInfo.Single(x => x.Task == id);
+            TaskInfo toDelete = _tc.TaskInfo.Single(x => x.TaskID == id);
             _tc.Remove(toDelete);
             _tc.SaveChanges();
             return RedirectToAction("Quadrant");
         }
 
         [HttpGet]
-        public IActionResult ConfirmDelete(string id)
+        public IActionResult ConfirmDelete(int id)
         {
-            TaskInfo toDelete = _tc.TaskInfo.Single(x => x.Task == id);
+            TaskInfo toDelete = _tc.TaskInfo.Single(x => x.TaskID == id);
             return View(toDelete);
         }
 
         [HttpGet]
-        public IActionResult CheckOffTask(string id)
+        public IActionResult CheckOffTask(int id)
         {
-            TaskInfo toCheckOff = _tc.TaskInfo.Single(x => x.Task == id);
+            TaskInfo toCheckOff = _tc.TaskInfo.Single(x => x.TaskID == id);
             toCheckOff.Completed = true;
             _tc.Update(toCheckOff);
             _tc.SaveChanges();
@@ -61,9 +61,9 @@ namespace TaskSite.Controllers
         }
 
         [HttpGet]
-        public IActionResult UpdateTask(string id)
+        public IActionResult UpdateTask(int id)
         {
-            TaskInfo t = _tc.TaskInfo.Single(x => x.Task == id);
+            TaskInfo t = _tc.TaskInfo.Single(x => x.TaskID == id);
             ViewBag.categories = _tc.Categories.ToList();
             return View("tasks", t);
         }
