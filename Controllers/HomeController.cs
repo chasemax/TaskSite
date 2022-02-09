@@ -69,9 +69,9 @@ namespace TaskSite.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateTask(TaskInfo ti)
+        public IActionResult UpdateTask(TaskInfo t)
         {
-            _tc.Update(ti);
+            _tc.Update(t);
             _tc.SaveChanges();
             return RedirectToAction("Quadrant");
         }
@@ -80,7 +80,7 @@ namespace TaskSite.Controllers
         public IActionResult AddTask()
         {
             ViewBag.categories = _tc.Categories.ToList();
-            return View("tasks");
+            return View("tasks", new TaskInfo());
         }
 
         [HttpPost]
