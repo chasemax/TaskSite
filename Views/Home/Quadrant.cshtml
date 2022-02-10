@@ -4,6 +4,7 @@
 
 @model List<TaskInfo>
 
+@*Create a table to display the task name, its due date, category, and a button to complete it. This table shows only the uncompleted tasks*@
     <div class="row">
         <div class="col-6">
             <h1>Quadrant 1</h1>
@@ -18,18 +19,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @*Quadrant 1 Entries in the Database
+                    Foreach loop to iterate through each quadrant 1 record in the database. An edit and a delete button allows the user to edit the entry or to delete an entry
+                    The same foreach loop exists for each of the four quadrants*@
                     @foreach (var v in Model)
                     {
                         @if (v.Quadrant == 1)
                         {
-                        <tr>
-                            <td>@v.Task</td>
-                            <td>@v.DueDate</td>
-                            <td>@v.Category.CategoryName</td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="CheckOffTask" asp-route-id="@v.TaskID">Check Off</a></td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="UpdateTask" asp-route-id="@v.TaskID">Edit</a></td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="ConfirmDelete" asp-route-id="@v.TaskID">Delete</a></td>
-                        </tr>
+                            <tr>
+                                <td>@v.Task</td>
+                                <td>@v.DueDate</td>
+                                <td>@v.Category.CategoryName</td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="CheckOffTask" asp-route-id="@v.TaskID">Check Off</a></td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="UpdateTask" asp-route-id="@v.TaskID">Edit</a></td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="ConfirmDelete" asp-route-id="@v.TaskID">Delete</a></td>
+                            </tr>
                         }
                     }
                 </tbody>
@@ -48,18 +52,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @*Quadrant 1 Entries in the Database*@
                     @foreach (var v in Model)
                     {
                         @if (v.Quadrant == 2)
                         {
-                        <tr>
-                            <td>@v.Task</td>
-                            <td>@v.DueDate</td>
-                            <td>@v.Category.CategoryName</td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="CheckOffTask" asp-route-id="@v.TaskID">Check Off</a></td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="UpdateTask" asp-route-id="@v.TaskID">Edit</a></td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="ConfirmDelete" asp-route-id="@v.TaskID">Delete</a></td>
-                        </tr>
+                            <tr>
+                                <td>@v.Task</td>
+                                <td>@v.DueDate</td>
+                                <td>@v.Category.CategoryName</td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="CheckOffTask" asp-route-id="@v.TaskID">Check Off</a></td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="UpdateTask" asp-route-id="@v.TaskID">Edit</a></td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="ConfirmDelete" asp-route-id="@v.TaskID">Delete</a></td>
+                            </tr>
                         }
                     }
                 </tbody>
@@ -80,18 +85,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @*Quadrant 1 Entries in the Database*@
                     @foreach (var v in Model)
                     {
                         @if (v.Quadrant == 3)
                         {
-                        <tr>
-                            <td>@v.Task</td>
-                            <td>@v.DueDate</td>
-                            <td>@v.Category.CategoryName</td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="CheckOffTask" asp-route-id="@v.TaskID">Check Off</a></td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="UpdateTask" asp-route-id="@v.TaskID">Edit</a></td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="ConfirmDelete" asp-route-id="@v.TaskID">Delete</a></td>
-                        </tr>
+                            <tr>
+                                <td>@v.Task</td>
+                                <td>@v.DueDate</td>
+                                <td>@v.Category.CategoryName</td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="CheckOffTask" asp-route-id="@v.TaskID">Check Off</a></td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="UpdateTask" asp-route-id="@v.TaskID">Edit</a></td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="ConfirmDelete" asp-route-id="@v.TaskID">Delete</a></td>
+                            </tr>
                         }
                     }
                 </tbody>
@@ -110,18 +116,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @*Quadrant 1 Entries in the Database*@
                     @foreach (var v in Model)
                     {
                         @if (v.Quadrant == 4)
                         {
-                        <tr>
-                            <td>@v.Task</td>
-                            <td>@v.DueDate</td>
-                            <td>@v.Category.CategoryName</td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="CheckOffTask" asp-route-id="@v.TaskID">Check Off</a></td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="UpdateTask" asp-route-id="@v.TaskID">Edit</a></td>
-                            <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="ConfirmDelete" asp-route-id="@v.TaskID">Delete</a></td>
-                        </tr>
+                            <tr>
+                                <td>@v.Task</td>
+                                <td>@v.DueDate</td>
+                                <td>@v.Category.CategoryName</td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="CheckOffTask" asp-route-id="@v.TaskID">Check Off</a></td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="UpdateTask" asp-route-id="@v.TaskID">Edit</a></td>
+                                <td><a class="btn btn-sm my-button" asp-controller="Home" asp-action="ConfirmDelete" asp-route-id="@v.TaskID">Delete</a></td>
+                            </tr>
                         }
                     }
                 </tbody>
