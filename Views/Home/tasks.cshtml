@@ -3,42 +3,49 @@
 }
 @model TaskSite.Models.TaskInfo
 
-    <div class="row">
-        <div class="col">
-            <form method="post">
-                <div asp-validation-summary="All"></div>
-                <input type="hidden" asp-for="TaskID" />
+<div class="row">
+    <div class="col">
+        <form method="post">
+            <!--Ensure that all fields are entered-->
+            <div asp-validation-summary="All"></div>
+            <input type="hidden" asp-for="TaskID" />
 
-                <label asp-for="Task">Task Name</label><br />
-                <input asp-for="Task" /><br /><br />
+            <!--Input for the task name-->
+            <label asp-for="Task">Task Name</label><br />
+            <input asp-for="Task" /><br /><br />
 
-                <label asp-for="DueDate">Due Date</label><br />
-                <input type='date' asp-for="DueDate" /><br /><br />
+            <!--Input for the task due date-->
+            <label asp-for="DueDate">Due Date</label><br />
+            <input type='date' asp-for="DueDate" /><br /><br />
 
-                <label asp-for="Quadrant">Quadrant</label><br />
-                <select asp-for="Quadrant">
-                    <option value="">Select a Quadrant</option>
-                    <option value="1">Quadrant 1</option>
-                    <option value="2">Quadrant 2</option>
-                    <option value="3">Quadrant 3</option>
-                    <option value="4">Quadrant 4</option>
-                </select><br /><br />
+            <!--Drop-down box for selecting a quadrant-->
+            <label asp-for="Quadrant">Quadrant</label><br />
+            <select asp-for="Quadrant">
+                <option value="">Select a Quadrant</option>
+                <option value="1">Quadrant 1</option>
+                <option value="2">Quadrant 2</option>
+                <option value="3">Quadrant 3</option>
+                <option value="4">Quadrant 4</option>
+            </select><br /><br />
 
-                <label asp-for="CategoryId">Category</label><br />
-                <select asp-for="CategoryId">
-                    <option value="">Select a Category</option>
-                    @foreach (Category c in ViewBag.categories)
-                    {
-                        <option value="@c.CategoryId">@c.CategoryName</option>
-                    }
-                </select><br /><br />
+            <!--For each category in the category table, list it in a drop down selector-->
+            <label asp-for="CategoryId">Category</label><br />
+            <select asp-for="CategoryId">
+                <option value="">Select a Category</option>
+                @foreach (Category c in ViewBag.categories)
+                {
+                    <option value="@c.CategoryId">@c.CategoryName</option>
+                }
+            </select><br /><br />
 
-                <input type="hidden" asp-for="Completed" value="false" />
+            <!--don't show the user the completed option-->
+            <input type="hidden" asp-for="Completed" value="false" />
 
-                <button type="submit">Save Task</button>
-            </form>
-        </div>
-        <div class="col">
-            <img src="~/img/Quadrants.jpg" width="500"/>
-        </div>
+            <button type="submit">Save Task</button>
+        </form>
     </div>
+    <!--picture of the 4 quadrants-->
+    <div class="col">
+        <img src="~/img/Quadrants.jpg" width="500" />
+    </div>
+</div>
